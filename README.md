@@ -5,7 +5,7 @@
 2. Stage your changes for commit `git add .`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin new_branch_name`
-5. Submit a pull request to the Master Branch when you are done with your feature, do NOT push directly
+5. Submit a pull request to the Dev Branch when you are done with your feature, do NOT push directly
 
 ## Development Workflow
 
