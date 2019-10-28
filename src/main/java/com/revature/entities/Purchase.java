@@ -8,54 +8,55 @@ public class Purchase {
 	private BigInteger time;
 	private double price;
 	private int rewardId;
-	
+
 	public Purchase() {
 		super();
 	}
 
-	public int getPurchaseId() {
-		return purchaseId;
-	}
-
-	public void setPurchaseId(int purchaseId) {
-		this.purchaseId = purchaseId;
-	}
-
 	public int getAssociateId() {
-		return associateId;
+		return this.associateId;
+	}
+
+	public double getPrice() {
+		return this.price;
+	}
+
+	public int getPurchaseId() {
+		return this.purchaseId;
+	}
+
+	public int getRewardId() {
+		return this.rewardId;
+	}
+
+	public BigInteger getTime() {
+		return this.time;
 	}
 
 	public void setAssociateId(int associateId) {
 		this.associateId = associateId;
 	}
 
-	public BigInteger getTime() {
-		return time;
-	}
-
-	public void setTime(BigInteger time) {
-		this.time = time;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	public int getRewardId() {
-		return rewardId;
+	public void setPurchaseId(int purchaseId) {
+		this.purchaseId = purchaseId;
 	}
 
 	public void setRewardId(int rewardId) {
 		this.rewardId = rewardId;
 	}
 
+	public void setTime(BigInteger time) {
+		this.time = time;
+	}
+
 	@Override
 	public String toString() {
-		return "Purchase [purchaseId=" + purchaseId + ", associateId=" + associateId + ", time=" + time + ", price="
-				+ price + ", rewardId=" + rewardId + "]";
+		return "Purchase [purchaseId=" + this.purchaseId + ", associateId="
+			+ this.associateId + ", time=" + this.time + ", price=" + this.price
+			+ ", rewardId=" + this.rewardId + "]";
 	}
 }

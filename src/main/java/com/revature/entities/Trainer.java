@@ -6,54 +6,55 @@ public class Trainer {
 	private String password;
 	private String fname;
 	private String lname;
-	
+
 	public Trainer() {
 		super();
 	}
 
-	public int getTrainerId() {
-		return trainerId;
+	public String getFname() {
+		return this.fname;
 	}
 
-	public void setTrainerId(int trainerId) {
-		this.trainerId = trainerId;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	public String getLname() {
+		return this.lname;
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public int getTrainerId() {
+		return this.trainerId;
 	}
 
-	public String getFname() {
-		return fname;
+	public String getUsername() {
+		return this.username;
 	}
 
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
 
-	public String getLname() {
-		return lname;
-	}
-
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setTrainerId(int trainerId) {
+		this.trainerId = trainerId;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	@Override
 	public String toString() {
-		return "Trainer [trainerId=" + trainerId + ", username=" + username + ", password=" + password + ", fname="
-				+ fname + ", lname=" + lname + "]";
+		return "Trainer [trainerId=" + this.trainerId + ", username="
+			+ this.username + ", password=" + this.password + ", fname="
+			+ this.fname + ", lname=" + this.lname + "]";
 	}
 }

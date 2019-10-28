@@ -5,37 +5,37 @@ public class Reward {
 	private String name;
 	private double price;
 	private int stock;
-	
+
 	public Reward() {
 		super();
 	}
 
-	public int getRewardId() {
-		return rewardId;
-	}
-
-	public void setRewardId(int rewardId) {
-		this.rewardId = rewardId;
-	}
-
 	public String getName() {
-		return name;
+		return this.name;
+	}
+
+	public double getPrice() {
+		return this.price;
+	}
+
+	public int getRewardId() {
+		return this.rewardId;
+	}
+
+	public int getStock() {
+		return this.stock;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public double getPrice() {
-		return price;
-	}
-
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	public int getStock() {
-		return stock;
+	public void setRewardId(int rewardId) {
+		this.rewardId = rewardId;
 	}
 
 	public void setStock(int stock) {
@@ -44,6 +44,7 @@ public class Reward {
 
 	@Override
 	public String toString() {
-		return "Reward [rewardId=" + rewardId + ", name=" + name + ", price=" + price + ", stock=" + stock + "]";
+		return "Reward [rewardId=" + this.rewardId + ", name=" + this.name
+			+ ", price=" + this.price + ", stock=" + this.stock + "]";
 	}
 }

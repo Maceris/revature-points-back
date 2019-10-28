@@ -8,70 +8,72 @@ public class Associate {
 	private String fname;
 	private String lname;
 	private int trainerId;
-	
+
 	public Associate() {
 		super();
 	}
 
 	public int getAssociateId() {
-		return associateId;
+		return this.associateId;
+	}
+
+	public double getBalance() {
+		return this.balance;
+	}
+
+	public String getFname() {
+		return this.fname;
+	}
+
+	public String getLname() {
+		return this.lname;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public int getTrainerId() {
+		return this.trainerId;
+	}
+
+	public String getUsername() {
+		return this.username;
 	}
 
 	public void setAssociateId(int associateId) {
 		this.associateId = associateId;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public double getBalance() {
-		return balance;
-	}
-
 	public void setBalance(double balance) {
 		this.balance = balance;
-	}
-
-	public String getFname() {
-		return fname;
 	}
 
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
 
-	public String getLname() {
-		return lname;
-	}
-
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
 
-	public int getTrainerId() {
-		return trainerId;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public void setTrainerId(int trainerId) {
 		this.trainerId = trainerId;
 	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	@Override
 	public String toString() {
-		return "Associate [associateId=" + associateId + ", username=" + username + ", password=" + password
-				+ ", balance=" + balance + ", fname=" + fname + ", lname=" + lname + ", trainerId=" + trainerId + "]";
+		return "Associate [associateId=" + this.associateId + ", username="
+			+ this.username + ", password=" + this.password + ", balance="
+			+ this.balance + ", fname=" + this.fname + ", lname=" + this.lname
+			+ ", trainerId=" + this.trainerId + "]";
 	}
 }
