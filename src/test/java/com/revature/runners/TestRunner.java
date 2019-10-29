@@ -1,5 +1,6 @@
 package com.revature.runners;
 
+import com.revature.pages.LoginPage;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
@@ -11,6 +12,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Runs the cucumber tests.
+ */
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources", glue = "com.revature.steps")
 public class TestRunner {
@@ -18,6 +22,11 @@ public class TestRunner {
 	 * The driver to use for testing.
 	 */
 	public static WebDriver driver;
+
+	/**
+	 * The login page.
+	 */
+	public static LoginPage loginPage;
 
 	/**
 	 * Set up before all tests.
@@ -30,6 +39,7 @@ public class TestRunner {
 
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		loginPage = new LoginPage();
 	}
 
 	/**
@@ -39,4 +49,5 @@ public class TestRunner {
 	public static void teardown() {
 		driver.quit();
 	}
+
 }

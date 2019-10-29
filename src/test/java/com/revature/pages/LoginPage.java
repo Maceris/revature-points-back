@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
  * The login page for the site.
  */
 public class LoginPage {
-
+	
 	/**
 	 * The username input field.
 	 */
