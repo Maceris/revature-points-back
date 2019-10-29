@@ -2,11 +2,25 @@ package com.revature.entities;
 
 import java.math.BigInteger;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="purchase")
 public class Purchase {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="p_id")
 	private int purchaseId;
+	@Column(name="a_id")
 	private int associateId;
+	@Column(name="p_time")
 	private BigInteger time;
-	private double price;
+	@Column(name="r_id")
 	private int rewardId;
 
 	public Purchase() {
@@ -15,10 +29,6 @@ public class Purchase {
 
 	public int getAssociateId() {
 		return this.associateId;
-	}
-
-	public double getPrice() {
-		return this.price;
 	}
 
 	public int getPurchaseId() {
@@ -37,10 +47,6 @@ public class Purchase {
 		this.associateId = associateId;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
 	public void setPurchaseId(int purchaseId) {
 		this.purchaseId = purchaseId;
 	}
@@ -55,8 +61,9 @@ public class Purchase {
 
 	@Override
 	public String toString() {
-		return "Purchase [purchaseId=" + this.purchaseId + ", associateId="
-			+ this.associateId + ", time=" + this.time + ", price=" + this.price
-			+ ", rewardId=" + this.rewardId + "]";
+		return "Purchase [purchaseId=" + purchaseId + ", associateId=" + associateId + ", time=" + time + ", rewardId="
+				+ rewardId + "]";
 	}
+
+	
 }
