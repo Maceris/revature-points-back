@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources", glue = "com.revature.steps")
-class TestRunner {
+public class TestRunner {
 	/**
 	 * The driver to use for testing.
 	 */
