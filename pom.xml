@@ -43,6 +43,24 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			</dependency>
+		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>
