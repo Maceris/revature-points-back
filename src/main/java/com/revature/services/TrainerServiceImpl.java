@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.revature.entities.Associate;
 import com.revature.entities.Trainer;
 import com.revature.repositories.TrainerRepository;
 
@@ -67,4 +68,14 @@ public class TrainerServiceImpl implements TrainerService {
 		}
 	}
 
+	@Override
+	public Trainer authenticateTrainer(String username, String password) {
+		Trainer trainer = (Trainer) tr.findByUsername(username);
+		if(trainer.getPassword().equals(password)) {
+			return trainer;
+		}
+		else {
+			return null;
+		}
+	}
 }

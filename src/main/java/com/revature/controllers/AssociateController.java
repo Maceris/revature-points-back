@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entities.Associate;
 import com.revature.entities.Purchase;
+import com.revature.entities.Reward;
 import com.revature.entities.Trainer;
 import com.revature.services.AssociateService;
 import com.revature.services.PurchaseService;
+import com.revature.services.RewardService;
 import com.revature.services.TrainerService;
 
 @Component
@@ -25,6 +27,8 @@ public class AssociateController {
 	AssociateService as;
 	@Autowired
 	PurchaseService ps;
+	@Autowired
+	RewardService rs;
 	
 	// 			CREATE
 	// Create new associate
@@ -33,6 +37,8 @@ public class AssociateController {
 		associate = as.createAssociate(associate);
 		return associate;
 	}
+	
+	// Create new purchase
 	
 	// 			READ
 	// Get associate by id
@@ -43,6 +49,16 @@ public class AssociateController {
 	}
 	
 	// Login associate
+	@RequestMapping(value = "/associates/login", method = RequestMethod.POST)
+	public Associate loginAssociate(@RequestBody Associate associate) {
+		Associate user = as.authenticateAssociate(associate.getUsername(), associate.getPassword());
+		if(user.equals(null)) {
+			return null;
+		}
+		else {
+			return user;
+		}
+	}
 	
 	// Get all associates by trainer id
 	@RequestMapping(value = "/associates?t_id={id}", method = RequestMethod.GET)
@@ -66,8 +82,18 @@ public class AssociateController {
 	}
 	
 	// Get all rewards
+	@RequestMapping(value = "/rewards", method = RequestMethod.GET)
+	public Set<Reward> getAllRewards(){
+		Set<Reward> rewards = rs.getAllRewards();
+		return rewards;
+	}
 	
 	// Get reward by id
+	@RequestMapping(value = "/rewards/:{id}", method = RequestMethod.GET)
+	public Reward getRewardById(@PathVariable int id) {
+		Reward reward = rs.getRewardById(id);
+		return reward;
+	}
 	
 	// 			UPDATE
 	// Update associate by id

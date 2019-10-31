@@ -12,6 +12,7 @@ public interface AssociateService {
 		// Read
 		Associate getAssociateById(int id);
 		Associate getAssociateByName(String name);
+		Associate authenticateAssociate(String username, String password);
 		Associate getTopAssociate();
 		Set<Associate> getAssociatesAbovePointValue(int pointValue);
 		Set<Associate> getAllAssociates();

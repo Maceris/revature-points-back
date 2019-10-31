@@ -13,6 +13,7 @@ public interface TrainerService {
 		Trainer getTrainerById(int id);
 		Trainer getTrainerByName(String name);
 		Trainer getTopTrainer();
+		Trainer authenticateTrainer(String username, String password);
 		Set<Trainer> getTrainersAbovePointValue(int pointValue);
 		Set<Trainer> getAllTrainers();
 		

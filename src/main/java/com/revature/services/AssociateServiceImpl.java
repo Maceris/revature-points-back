@@ -30,6 +30,17 @@ public class AssociateServiceImpl implements AssociateService {
 	}
 
 	@Override
+	public Associate authenticateAssociate(String username, String password) {
+		Associate associate = (Associate) ar.findByUsername(username);
+		if(associate.getPassword().equals(password)) {
+			return associate;
+		}
+		else {
+			return null;
+		}
+	}
+
+	@Override
 	public Associate getAssociateByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
