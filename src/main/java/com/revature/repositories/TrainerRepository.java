@@ -11,5 +11,5 @@ import com.revature.entities.Trainer;
 @Component
 @Repository
 public interface TrainerRepository extends CrudRepository<Trainer, Integer> {
-	Set<Trainer> findByName(String name);
+	Set<Trainer> findByLName(String name);
 }

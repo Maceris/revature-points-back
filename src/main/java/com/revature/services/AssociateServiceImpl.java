@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.revature.entities.Associate;
+import com.revature.entities.Purchase;
 import com.revature.repositories.AssociateRepository;
 
 @Component
@@ -74,5 +75,4 @@ public class AssociateServiceImpl implements AssociateService {
 		Set<Associate> associates = new HashSet<Associate>((Collection<? extends Associate>) ar.findByTrainerId(id));
 		return associates;
 	}
-
 }

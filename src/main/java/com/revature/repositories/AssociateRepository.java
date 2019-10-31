@@ -11,6 +11,6 @@ import com.revature.entities.Associate;
 @Component
 @Repository
 public interface AssociateRepository extends CrudRepository<Associate, Integer>{
-	Set<Associate> findByName(String name);
+	Set<Associate> findByLName(String name);
 	Set<Associate> findByTrainerId(int id);
 }

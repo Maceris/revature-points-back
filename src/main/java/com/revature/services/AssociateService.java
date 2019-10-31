@@ -3,9 +3,10 @@ package com.revature.services;
 import java.util.Set;
 
 import com.revature.entities.Associate;
+import com.revature.entities.Purchase;
 
 public interface AssociateService {
-	// Create
+		// Create
 		Associate createAssociate(Associate associate);
 		
 		// Read

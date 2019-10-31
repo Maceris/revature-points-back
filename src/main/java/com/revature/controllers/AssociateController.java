@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entities.Associate;
+import com.revature.entities.Purchase;
 import com.revature.entities.Trainer;
 import com.revature.services.AssociateService;
+import com.revature.services.PurchaseService;
 import com.revature.services.TrainerService;
 
 @Component
@@ -21,6 +23,8 @@ public class AssociateController {
 	
 	@Autowired
 	AssociateService as;
+	@Autowired
+	PurchaseService ps;
 	
 	// 			CREATE
 	// Create new associate
@@ -48,8 +52,18 @@ public class AssociateController {
 	}
 	
 	// Get all purchases my by specific associate
+	@RequestMapping(value = "/purchases?a_id= {id}", method = RequestMethod.GET)
+	public Set<Purchase> getAllPurchasesByAssociate(@PathVariable int id){
+		Set<Purchase> purchases = ps.getAllPurchasesByAssociateId(id);
+		return purchases;
+	}
 	
 	// Get purchase by id
+	@RequestMapping(value = "/purchases/:{id}", method = RequestMethod.GET)
+	public Purchase getPurchaseById(@PathVariable int id) {
+		Purchase purchase = ps.getPurchaseById(id);
+		return purchase;
+	}
 	
 	// Get all rewards
 	
