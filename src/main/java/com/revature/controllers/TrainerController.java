@@ -60,11 +60,11 @@ public class TrainerController {
 	}
 	
 	// Get associates for trainer
-	@RequestMapping(value = "/associates?t_id={id}", method = RequestMethod.GET)
-	public Set<Associate> getAssociatesByTrainerId(@PathVariable int id) {
-		Set<Associate> associates = as.getAllAssociatesByTrainerId(id);
-		return associates;
-	}
+//	@RequestMapping(value = "/associates?t_id={id}", method = RequestMethod.GET)
+//	public Set<Associate> getAssociatesByTrainerId(@PathVariable int id) {
+//		Set<Associate> associates = as.getAllAssociatesByTrainerId(id);
+//		return associates;
+//	}
 	
 	// Get trainer by id
 	@RequestMapping(value = "/trainers/:{id}", method = RequestMethod.GET)
@@ -81,33 +81,33 @@ public class TrainerController {
 	}
 	
 	// Get all purchases made by a specific associate
-	@RequestMapping(value = "/purchases?a_id={id}", method = RequestMethod.GET)
-	public Set<Purchase> getAllPurchasesByAssociate(@PathVariable int id){
-		Set<Purchase> purchases = ps.getAllPurchasesByAssociateId(id);
-		return purchases;
-	}
+//	@RequestMapping(value = "/purchases?a_id={id}", method = RequestMethod.GET)
+//	public Set<Purchase> getAllPurchasesByAssociate(@PathVariable int id){
+//		Set<Purchase> purchases = ps.getAllPurchasesByAssociateId(id);
+//		return purchases;
+//	}
 	
 	// Get purchase by id
-	@RequestMapping(value = "/purchases/:{id}", method = RequestMethod.GET)
-	public Purchase getPurchaseById(@PathVariable int id) {
-		Purchase purchase = ps.getPurchaseById(id);
-		return purchase;
-	}
+//	@RequestMapping(value = "/purchases/:{id}", method = RequestMethod.GET)
+//	public Purchase getPurchaseById(@PathVariable int id) {
+//		Purchase purchase = ps.getPurchaseById(id);
+//		return purchase;
+//	}
 	
 	// Get all rewards
-	@RequestMapping(value = "/rewards", method = RequestMethod.GET)
-	public Set<Reward> getAllRewards(){
-		Set<Reward> rewards = rs.getAllRewards();
-		return rewards;
-	}
+//	@RequestMapping(value = "/rewards", method = RequestMethod.GET)
+//	public Set<Reward> getAllRewards(){
+//		Set<Reward> rewards = rs.getAllRewards();
+//		return rewards;
+//	}
 	
 	//			UPDATE
 	// Update associate by id
-	@RequestMapping(value = "/associates/:{id}", method = RequestMethod.PUT)
-	public Associate updateAssociateById(@RequestBody Associate associate) {
-		associate = as.updateAssociate(associate);
-		return associate;
-	}
+//	@RequestMapping(value = "/associates/:{id}", method = RequestMethod.PUT)
+//	public Associate updateAssociateById(@RequestBody Associate associate) {
+//		associate = as.updateAssociate(associate);
+//		return associate;
+//	}
 	
 	// Update trainer by id
 	@RequestMapping(value = "/trainers/:{id}", method = RequestMethod.PUT)
