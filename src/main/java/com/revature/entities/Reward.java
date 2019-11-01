@@ -1,9 +1,28 @@
 package com.revature.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="reward")
 public class Reward {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="r_id")
 	private int rewardId;
+	
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="price")
 	private double price;
+	
+	@Column(name="stock")
 	private int stock;
 
 	public Reward() {

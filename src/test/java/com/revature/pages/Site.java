@@ -7,5 +7,5 @@ public class Site {
 	/**
 	 * The root address of the site.
 	 */
-	public static final String URL = "http://127.0.0.1:4200/";
+	public static final String URL = "http://ec2-52-14-160-173.us-east-2.compute.amazonaws.com:8081/";
 }

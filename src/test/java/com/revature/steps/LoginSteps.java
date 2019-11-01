@@ -2,10 +2,10 @@ package com.revature.steps;
 
 import com.revature.pages.Site;
 import com.revature.runners.TestRunner;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 
 /**
  * Steps for the login process.
@@ -56,10 +56,15 @@ public class LoginSteps {
 		TestRunner.loginPage.loginButton.click();
 	}
 
+	/**
+	 * Checks that the user is now on the dashboard page.
+	 * 
+	 * @throws Throwable If a problem occurs.
+	 */
 	@Then("^The user should be on the dashboard page$")
 	public void the_user_should_be_on_the_dashboard_page() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		Assert.assertEquals(Site.URL + "dashboard",
+			TestRunner.driver.getCurrentUrl());
 	}
 
 }

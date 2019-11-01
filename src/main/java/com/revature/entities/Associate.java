@@ -1,12 +1,37 @@
 package com.revature.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="associate")
 public class Associate {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="a_id")
 	private int associateId;
+	
+	@Column(name="username")
 	private String username;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="balance")
 	private double balance;
+	
+	@Column(name="f_name")
 	private String fname;
+	
+	@Column(name="l_name")
 	private String lname;
+	
+	@Column(name="t_id")
 	private int trainerId;
 
 	public Associate() {
