@@ -10,14 +10,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name="reward")
 public class Reward {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="r_id")
 	private int rewardId;
+	
 	@Column(name="name")
 	private String name;
+	
 	@Column(name="price")
 	private double price;
+	
 	@Column(name="stock")
 	private int stock;
 

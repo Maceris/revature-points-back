@@ -12,14 +12,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name="purchase")
 public class Purchase {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="p_id")
 	private int purchaseId;
+	
 	@Column(name="a_id")
 	private int associateId;
+	
 	@Column(name="p_time")
 	private BigInteger time;
+	
 	@Column(name="r_id")
 	private int rewardId;
 

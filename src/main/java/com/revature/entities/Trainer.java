@@ -15,12 +15,16 @@ public class Trainer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="t_id")
 	private int trainerId;
+	
 	@Column(name="username")
 	private String username;
+	
 	@Column(name="password")
 	private String password;
+	
 	@Column(name="f_name")
 	private String fname;
+	
 	@Column(name="l_name")
 	private String lname;
 

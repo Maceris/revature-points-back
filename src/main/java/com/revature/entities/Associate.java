@@ -15,16 +15,22 @@ public class Associate {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="a_id")
 	private int associateId;
+	
 	@Column(name="username")
 	private String username;
+	
 	@Column(name="password")
 	private String password;
+	
 	@Column(name="balance")
 	private double balance;
+	
 	@Column(name="f_name")
 	private String fname;
+	
 	@Column(name="l_name")
 	private String lname;
+	
 	@Column(name="t_id")
 	private int trainerId;
 
