@@ -67,7 +67,7 @@ public class TrainerController {
 //	}
 	
 	// Get trainer by id
-	@RequestMapping(value = "/trainers/:{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/trainers/{id}", method = RequestMethod.GET)
 	public Trainer getTrainerById(@PathVariable int id) {
 		Trainer trainer = ts.getTrainerById(id);
 		return trainer;
@@ -110,7 +110,7 @@ public class TrainerController {
 //	}
 	
 	// Update trainer by id
-	@RequestMapping(value = "/trainers/:{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/trainers/{id}", method = RequestMethod.PUT)
 	public Trainer updateTrainerById(@RequestBody Trainer trainer) {
 		trainer = ts.updateTrainer(trainer);
 		return trainer;

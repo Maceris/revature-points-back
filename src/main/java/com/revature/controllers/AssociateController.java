@@ -42,7 +42,7 @@ public class AssociateController {
 	
 	// 			READ
 	// Get associate by id
-	@RequestMapping(value = "/associates/:{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/associates/{id}", method = RequestMethod.GET)
 	public Associate getAssociateById(@PathVariable int id) {
 		Associate associate = as.getAssociateById(id);
 		return associate;
@@ -75,7 +75,7 @@ public class AssociateController {
 	}
 	
 	// Get purchase by id
-	@RequestMapping(value = "/purchases/:{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/purchases/{id}", method = RequestMethod.GET)
 	public Purchase getPurchaseById(@PathVariable int id) {
 		Purchase purchase = ps.getPurchaseById(id);
 		return purchase;
@@ -89,7 +89,7 @@ public class AssociateController {
 	}
 	
 	// Get reward by id
-	@RequestMapping(value = "/rewards/:{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/rewards/{id}", method = RequestMethod.GET)
 	public Reward getRewardById(@PathVariable int id) {
 		Reward reward = rs.getRewardById(id);
 		return reward;
@@ -97,7 +97,7 @@ public class AssociateController {
 	
 	// 			UPDATE
 	// Update associate by id
-	@RequestMapping(value = "/associates/:{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/associates/{id}", method = RequestMethod.PUT)
 	public Associate updateAssociateById(@RequestBody Associate associate) {
 		associate = as.updateAssociate(associate);
 		return associate;
