@@ -68,7 +68,7 @@ public class AssociateController {
 	}
 	
 	// Get all purchases my by specific associate
-	@RequestMapping(value = "/purchases?a_id= {id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/purchases?a_id={id}", method = RequestMethod.GET)
 	public Set<Purchase> getAllPurchasesByAssociate(@PathVariable int id){
 		Set<Purchase> purchases = ps.getAllPurchasesByAssociateId(id);
 		return purchases;
