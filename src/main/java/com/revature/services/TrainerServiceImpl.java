@@ -5,11 +5,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.revature.entities.Associate;
 import com.revature.entities.Trainer;
 import com.revature.repositories.TrainerRepository;
 
+@Component
 public class TrainerServiceImpl implements TrainerService {
 
 	@Autowired

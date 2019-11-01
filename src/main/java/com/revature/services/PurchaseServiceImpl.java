@@ -5,10 +5,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.revature.entities.Purchase;
 import com.revature.repositories.PurchaseRepository;
 
+@Component
 public class PurchaseServiceImpl implements PurchaseService{
 	
 	@Autowired
