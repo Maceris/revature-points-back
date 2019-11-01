@@ -1,10 +1,27 @@
 package com.revature.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="trainer")
 public class Trainer {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="t_id")
 	private int trainerId;
+	@Column(name="username")
 	private String username;
+	@Column(name="password")
 	private String password;
+	@Column(name="f_name")
 	private String fname;
+	@Column(name="l_name")
 	private String lname;
 
 	public Trainer() {
