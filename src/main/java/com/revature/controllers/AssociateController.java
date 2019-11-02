@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entities.Associate;
+import com.revature.entities.Login;
 import com.revature.entities.Purchase;
 import com.revature.entities.Reward;
 import com.revature.entities.Trainer;
@@ -50,9 +51,9 @@ public class AssociateController {
 
 	// Login associate
 	@RequestMapping(value = "/associates/login", method = RequestMethod.POST)
-	public Associate loginAssociate(@RequestBody String username,
-		@RequestBody String password) {
-		Associate user = as.authenticateAssociate(username, password);
+	public Associate loginAssociate(@RequestBody Login login) {
+		Associate user =
+			as.authenticateAssociate(login.getUsername(), login.getPassword());
 		if (user.equals(null)) {
 			return null;
 		}
