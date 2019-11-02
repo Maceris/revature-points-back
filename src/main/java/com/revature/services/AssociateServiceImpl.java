@@ -13,7 +13,7 @@ import com.revature.repositories.AssociateRepository;
 
 @Component
 public class AssociateServiceImpl implements AssociateService {
-	
+
 	@Autowired
 	AssociateRepository ar;
 
@@ -31,13 +31,13 @@ public class AssociateServiceImpl implements AssociateService {
 
 	@Override
 	public Associate authenticateAssociate(String username, String password) {
-		Associate associate = (Associate) ar.findByUsername(username);
-		if(associate.getPassword().equals(password)) {
-			return associate;
+		Set<Associate> associates = ar.findByUsername(username);
+		for (Associate associate : associates) {
+			if (associate.getPassword().equals(password)) {
+				return associate;
+			}
 		}
-		else {
-			return null;
-		}
+		return null;
 	}
 
 	@Override
@@ -60,7 +60,8 @@ public class AssociateServiceImpl implements AssociateService {
 
 	@Override
 	public Set<Associate> getAllAssociates() {
-		Set<Associate> associates = new HashSet<Associate>((Collection<? extends Associate>) ar.findAll());
+		Set<Associate> associates = new HashSet<Associate>(
+			(Collection<? extends Associate>) ar.findAll());
 		return associates;
 	}
 
@@ -76,14 +77,15 @@ public class AssociateServiceImpl implements AssociateService {
 			ar.delete(associate);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e) {
 			return false;
 		}
 	}
 
 	@Override
 	public Set<Associate> getAllAssociatesByTrainerId(int id) {
-		Set<Associate> associates = new HashSet<Associate>((Collection<? extends Associate>) ar.findByTrainerId(id));
+		Set<Associate> associates = new HashSet<Associate>(
+			(Collection<? extends Associate>) ar.findByTrainerId(id));
 		return associates;
 	}
 }

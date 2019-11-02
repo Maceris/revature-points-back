@@ -22,89 +22,86 @@ import com.revature.services.TrainerService;
 @Component
 @RestController
 public class AssociateController {
-	
+
 	@Autowired
 	AssociateService as;
 	@Autowired
 	PurchaseService ps;
 	@Autowired
 	RewardService rs;
-	
-	// 			CREATE
+
+	// CREATE
 	// Create new associate
 	@RequestMapping(value = "/associates", method = RequestMethod.POST)
 	public Associate createAssociate(@RequestBody Associate associate) {
 		associate = as.createAssociate(associate);
 		return associate;
 	}
-	
+
 	// Create new purchase
-	
-	// 			READ
+
+	// READ
 	// Get associate by id
 	@RequestMapping(value = "/associates/{id}", method = RequestMethod.GET)
 	public Associate getAssociateById(@PathVariable int id) {
 		Associate associate = as.getAssociateById(id);
 		return associate;
 	}
-	
+
 	// Login associate
 	@RequestMapping(value = "/associates/login", method = RequestMethod.POST)
-	public Associate loginAssociate(@RequestBody Associate associate) {
-		Associate user = as.authenticateAssociate(associate.getUsername(), associate.getPassword());
-		if(user.equals(null)) {
+	public Associate loginAssociate(@RequestBody String username,
+		@RequestBody String password) {
+		Associate user = as.authenticateAssociate(username, password);
+		if (user.equals(null)) {
 			return null;
 		}
-		else {
-			return user;
-		}
+		return user;
 	}
-	
+
 	// Get all associates by trainer id
 	@RequestMapping(value = "/associates?t_id={id}", method = RequestMethod.GET)
 	public Set<Associate> getAssociatesByTrainerId(@PathVariable int id) {
 		Set<Associate> associates = as.getAllAssociatesByTrainerId(id);
 		return associates;
 	}
-	
+
 	// Get all purchases my by specific associate
 	@RequestMapping(value = "/purchases?a_id={id}", method = RequestMethod.GET)
-	public Set<Purchase> getAllPurchasesByAssociate(@PathVariable int id){
+	public Set<Purchase> getAllPurchasesByAssociate(@PathVariable int id) {
 		Set<Purchase> purchases = ps.getAllPurchasesByAssociateId(id);
 		return purchases;
 	}
-	
+
 	// Get purchase by id
 	@RequestMapping(value = "/purchases/{id}", method = RequestMethod.GET)
 	public Purchase getPurchaseById(@PathVariable int id) {
 		Purchase purchase = ps.getPurchaseById(id);
 		return purchase;
 	}
-	
+
 	// Get all rewards
 	@RequestMapping(value = "/rewards", method = RequestMethod.GET)
-	public Set<Reward> getAllRewards(){
+	public Set<Reward> getAllRewards() {
 		Set<Reward> rewards = rs.getAllRewards();
 		return rewards;
 	}
-	
+
 	// Get reward by id
 	@RequestMapping(value = "/rewards/{id}", method = RequestMethod.GET)
 	public Reward getRewardById(@PathVariable int id) {
 		Reward reward = rs.getRewardById(id);
 		return reward;
 	}
-	
-	// 			UPDATE
+
+	// UPDATE
 	// Update associate by id
 	@RequestMapping(value = "/associates/{id}", method = RequestMethod.PUT)
 	public Associate updateAssociateById(@RequestBody Associate associate) {
 		associate = as.updateAssociate(associate);
 		return associate;
 	}
-	
-	
-	
-	// 			DELETE
+
+	// DELETE
 	// Delete associate by id
 }
