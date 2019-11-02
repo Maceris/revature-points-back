@@ -16,14 +16,19 @@ public class Login {
 	}
 
 	/**
-	 * @return the password
+	 * Return the plaintext password. I am so sorry.
+	 *
+	 * @return The password, in plaintext.
+	 * @apiNote Ches hates everything about this.
 	 */
 	public String getPassword() {
 		return this.password;
 	}
 
 	/**
-	 * @return the username
+	 * Return the username.
+	 *
+	 * @return The username.
 	 */
 	public String getUsername() {
 		return this.username;
@@ -31,13 +36,16 @@ public class Login {
 
 	/**
 	 * @param password the password to set
+	 * @apiNote Ches hates everything about this.
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
 	/**
-	 * @param username the username to set
+	 * Set the username.
+	 *
+	 * @param username The new username.
 	 */
 	public void setUsername(String username) {
 		this.username = username;
