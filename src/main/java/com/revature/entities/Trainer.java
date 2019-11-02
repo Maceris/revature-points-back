@@ -40,7 +40,7 @@ public class Trainer {
 
 	/**
 	 * Return the first name of the trainer.
-	 * 
+	 *
 	 * @return The first name.
 	 */
 	public String getFname() {
@@ -49,7 +49,7 @@ public class Trainer {
 
 	/**
 	 * Return the last name of the trainer.
-	 * 
+	 *
 	 * @return The last name.
 	 */
 	public String getLname() {
@@ -58,7 +58,7 @@ public class Trainer {
 
 	/**
 	 * Return the trainers plaintext password.
-	 * 
+	 *
 	 * @return The password in plaintext, waiting to be stolen.
 	 * @apiNote Ches hates everything about this.
 	 */
@@ -68,7 +68,7 @@ public class Trainer {
 
 	/**
 	 * Return the unique trainer ID.
-	 * 
+	 *
 	 * @return The trainer ID.
 	 */
 	public int getTrainerId() {
@@ -77,7 +77,7 @@ public class Trainer {
 
 	/**
 	 * Return the trainers username.
-	 * 
+	 *
 	 * @return The username.
 	 */
 	public String getUsername() {
@@ -86,7 +86,7 @@ public class Trainer {
 
 	/**
 	 * Set the first name of the trainer.
-	 * 
+	 *
 	 * @param fname The new first name.
 	 */
 	public void setFname(String fname) {
@@ -95,7 +95,7 @@ public class Trainer {
 
 	/**
 	 * Set the last name of the trainer.
-	 * 
+	 *
 	 * @param lname The new last name.
 	 */
 	public void setLname(String lname) {
@@ -104,7 +104,7 @@ public class Trainer {
 
 	/**
 	 * Set the plaintext password.
-	 * 
+	 *
 	 * @param password The password, in plaintext.
 	 * @apiNote Ches hates everything about this.
 	 */
@@ -114,7 +114,7 @@ public class Trainer {
 
 	/**
 	 * Set the unique trainer ID.
-	 * 
+	 *
 	 * @param trainerId The new trainer ID.
 	 */
 	public void setTrainerId(int trainerId) {
@@ -123,7 +123,7 @@ public class Trainer {
 
 	/**
 	 * Set the username of the trainer.
-	 * 
+	 *
 	 * @param username The new username.
 	 */
 	public void setUsername(String username) {

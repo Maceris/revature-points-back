@@ -17,7 +17,7 @@ public class RevaRewardsApplication {
 
 	/**
 	 * Starts up the spring application.
-	 * 
+	 *
 	 * @param args Passed along to the spring application.
 	 */
 	public static void main(String[] args) {

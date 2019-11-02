@@ -23,42 +23,42 @@ public class PurchaseServiceImpl implements PurchaseService {
 
 	@Override
 	public Purchase createPurchase(Purchase purchase) {
-		return pr.save(purchase);
-	}
-
-	@Override
-	public Purchase getPurchaseById(int id) {
-		Purchase purchase = pr.findById(id).get();
-		return purchase;
-	}
-
-	@Override
-	public Set<Purchase> getAllPurchases() {
-		Set<Purchase> purchases =
-			new HashSet<>((Collection<? extends Purchase>) pr.findAll());
-		return purchases;
-	}
-
-	@Override
-	public Set<Purchase> getAllPurchasesByAssociateId(int id) {
-		Set<Purchase> purchases = pr.findByAssociateId(id);
-		return purchases;
-	}
-
-	@Override
-	public Purchase updatePurchase(Purchase purchase) {
-		return pr.save(purchase);
+		return this.pr.save(purchase);
 	}
 
 	@Override
 	public boolean deletePurchase(Purchase purchase) {
 		try {
-			pr.delete(purchase);
+			this.pr.delete(purchase);
 			return true;
 		}
 		catch (Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	public Set<Purchase> getAllPurchases() {
+		Set<Purchase> purchases =
+			new HashSet<>((Collection<? extends Purchase>) this.pr.findAll());
+		return purchases;
+	}
+
+	@Override
+	public Set<Purchase> getAllPurchasesByAssociateId(int id) {
+		Set<Purchase> purchases = this.pr.findByAssociateId(id);
+		return purchases;
+	}
+
+	@Override
+	public Purchase getPurchaseById(int id) {
+		Purchase purchase = this.pr.findById(id).get();
+		return purchase;
+	}
+
+	@Override
+	public Purchase updatePurchase(Purchase purchase) {
+		return this.pr.save(purchase);
 	}
 
 }

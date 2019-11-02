@@ -17,7 +17,7 @@ public class Login {
 
 	/**
 	 * Return the plaintext password. I am so sorry.
-	 * 
+	 *
 	 * @return The password, in plaintext.
 	 * @apiNote Ches hates everything about this.
 	 */
@@ -27,7 +27,7 @@ public class Login {
 
 	/**
 	 * Return the username.
-	 * 
+	 *
 	 * @return The username.
 	 */
 	public String getUsername() {
@@ -44,7 +44,7 @@ public class Login {
 
 	/**
 	 * Set the username.
-	 * 
+	 *
 	 * @param username The new username.
 	 */
 	public void setUsername(String username) {

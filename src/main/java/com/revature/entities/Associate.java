@@ -46,7 +46,7 @@ public class Associate {
 
 	/**
 	 * Return the associates ID.
-	 * 
+	 *
 	 * @return The associate ID.
 	 */
 	public int getAssociateId() {
@@ -55,7 +55,7 @@ public class Associate {
 
 	/**
 	 * Return the balance of revature points.
-	 * 
+	 *
 	 * @return The balance.
 	 */
 	public double getBalance() {
@@ -64,7 +64,7 @@ public class Associate {
 
 	/**
 	 * Return the first name of the associate.
-	 * 
+	 *
 	 * @return The first name.
 	 */
 	public String getFname() {
@@ -73,7 +73,7 @@ public class Associate {
 
 	/**
 	 * Return the last name of the associate.
-	 * 
+	 *
 	 * @return The last name.
 	 */
 	public String getLname() {
@@ -82,7 +82,7 @@ public class Associate {
 
 	/**
 	 * Return the password of the associate.
-	 * 
+	 *
 	 * @apiNote Ches hates everything about this.
 	 * @return The password in plaintext, like a monster.
 	 */
@@ -92,7 +92,7 @@ public class Associate {
 
 	/**
 	 * Return the trainer ID of this associates trainer.
-	 * 
+	 *
 	 * @return The trainers ID.
 	 */
 	public int getTrainerId() {
@@ -101,7 +101,7 @@ public class Associate {
 
 	/**
 	 * Return the username of the associate.
-	 * 
+	 *
 	 * @return The username.
 	 */
 	public String getUsername() {
@@ -110,7 +110,7 @@ public class Associate {
 
 	/**
 	 * Set the ID of the associate.
-	 * 
+	 *
 	 * @param associateId The new ID.
 	 */
 	public void setAssociateId(int associateId) {
@@ -119,7 +119,7 @@ public class Associate {
 
 	/**
 	 * Set the revature point balance of the associate.
-	 * 
+	 *
 	 * @param balance The new balance in revature points.
 	 */
 	public void setBalance(double balance) {
@@ -128,7 +128,7 @@ public class Associate {
 
 	/**
 	 * Set the first name of the associate.
-	 * 
+	 *
 	 * @param fname The new first name.
 	 */
 	public void setFname(String fname) {
@@ -137,7 +137,7 @@ public class Associate {
 
 	/**
 	 * Set the last name of the associate.
-	 * 
+	 *
 	 * @param lname The new last name.
 	 */
 	public void setLname(String lname) {
@@ -146,7 +146,7 @@ public class Associate {
 
 	/**
 	 * Set the password of the associate.
-	 * 
+	 *
 	 * @param password The plaintext password.
 	 * @apiNote Ches hates everything about this.
 	 */
@@ -156,7 +156,7 @@ public class Associate {
 
 	/**
 	 * Set the ID of the trainer that this associate is taught by.
-	 * 
+	 *
 	 * @param trainerId The new trainer ID.
 	 */
 	public void setTrainerId(int trainerId) {
@@ -165,7 +165,7 @@ public class Associate {
 
 	/**
 	 * Set the username of the associate.
-	 * 
+	 *
 	 * @param username The new username.
 	 */
 	public void setUsername(String username) {

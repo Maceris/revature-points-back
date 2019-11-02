@@ -16,7 +16,7 @@ public interface PurchaseRepository extends CrudRepository<Purchase, Integer> {
 	/**
 	 * Finds all purchases that were made by an associate with the supplied
 	 * associate ID.
-	 * 
+	 *
 	 * @param id The associate ID to look for.
 	 * @return The set of purchases made by the given associate.
 	 */

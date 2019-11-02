@@ -27,36 +27,36 @@ public class RewardController {
 
 	/**
 	 * Create a new reward and return it.
-	 * 
+	 *
 	 * @param reward The reward to create, passed in the request body.
 	 * @return The newly created reward.
 	 */
 	@RequestMapping(value = "/rewards", method = RequestMethod.POST)
 	public Reward createReward(@RequestBody Reward reward) {
-		return rs.createReward(reward);
+		return this.rs.createReward(reward);
 	}
 
 	/**
 	 * Returns all the rewards.
-	 * 
+	 *
 	 * @return The set of all rewards.
 	 */
 
 	@RequestMapping(value = "/rewards", method = RequestMethod.GET)
 	public Set<Reward> getAllRewards() {
-		Set<Reward> rewards = rs.getAllRewards();
+		Set<Reward> rewards = this.rs.getAllRewards();
 		return rewards;
 	}
 
 	/**
 	 * Return the reward that has the given reward ID.
-	 * 
+	 *
 	 * @param id The ID of the reward, passed in through the url.
 	 * @return The reward with that ID.
 	 */
 	@RequestMapping(value = "/rewards/{id}", method = RequestMethod.GET)
 	public Reward getRewardById(@PathVariable int id) {
-		Reward reward = rs.getRewardById(id);
+		Reward reward = this.rs.getRewardById(id);
 		return reward;
 	}
 }

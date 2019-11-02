@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public interface TrainerRepository extends CrudRepository<Trainer, Integer> {
 	/**
 	 * Find the trainer that has the supplied username.
-	 * 
+	 *
 	 * @param username The username to look for.
 	 * @return The trainer with the given username, or null if none are found.
 	 */

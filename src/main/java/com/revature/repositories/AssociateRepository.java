@@ -14,21 +14,21 @@ import java.util.Set;
 @Repository
 public interface AssociateRepository
 	extends CrudRepository<Associate, Integer> {
-	/**
-	 * Find all associates that have a given username.
-	 * 
-	 * @param username The username to search for.
-	 * @return The set of associates that have that username.
-	 */
-	Set<Associate> findByUsername(String username);
-
 	// TODO Set<Associate> findByLName(String name);
 	/**
 	 * Find all associates that have the given trainer, based on the trainers
 	 * ID.
-	 * 
+	 *
 	 * @param id The trainer ID to look for.
 	 * @return The set of associates with the given trainer ID.
 	 */
 	Set<Associate> findByTrainerId(int id);
+
+	/**
+	 * Find all associates that have a given username.
+	 *
+	 * @param username The username to search for.
+	 * @return The set of associates that have that username.
+	 */
+	Set<Associate> findByUsername(String username);
 }

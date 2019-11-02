@@ -26,25 +26,37 @@ public class TrainerController {
 
 	/**
 	 * Create a trainer, using the info passed in the request body.
-	 * 
+	 *
 	 * @param trainer The trainer to create.
 	 * @return The newly created trainer.
 	 */
 	@RequestMapping(value = "/trainers", method = RequestMethod.POST)
 	public Trainer createTrainer(@RequestBody Trainer trainer) {
-		return ts.createTrainer(trainer);
+		return this.ts.createTrainer(trainer);
+	}
+
+	/**
+	 * Finds the trainer with the given ID.
+	 *
+	 * @param id The ID of the trainer, passed in through the URL.
+	 * @return The trainer with that ID or null if it is not found.
+	 */
+	@RequestMapping(value = "/trainers/{id}", method = RequestMethod.GET)
+	public Trainer getTrainerById(@PathVariable int id) {
+		Trainer trainer = this.ts.getTrainerById(id);
+		return trainer;
 	}
 
 	/**
 	 * Try to log the user in.
-	 * 
+	 *
 	 * @param login The login info passed in the request body.
 	 * @return The associated user, or null if no records match the credentials.
 	 */
 	@RequestMapping(value = "/trainers/login", method = RequestMethod.POST)
 	public Trainer loginTrainer(@RequestBody Login login) {
-		Trainer user =
-			ts.authenticateTrainer(login.getUsername(), login.getPassword());
+		Trainer user = this.ts.authenticateTrainer(login.getUsername(),
+			login.getPassword());
 		if (user.equals(null)) {
 			return null;
 		}
@@ -52,26 +64,14 @@ public class TrainerController {
 	}
 
 	/**
-	 * Finds the trainer with the given ID.
-	 * 
-	 * @param id The ID of the trainer, passed in through the URL.
-	 * @return The trainer with that ID or null if it is not found.
-	 */
-	@RequestMapping(value = "/trainers/{id}", method = RequestMethod.GET)
-	public Trainer getTrainerById(@PathVariable int id) {
-		Trainer trainer = ts.getTrainerById(id);
-		return trainer;
-	}
-
-	/**
 	 * Update a trainer given their ID.
-	 * 
+	 *
 	 * @param trainer The trainer info passed in the request body.
 	 * @return The updated trainer.
 	 */
 	@RequestMapping(value = "/trainers/{id}", method = RequestMethod.PUT)
 	public Trainer updateTrainerById(@RequestBody Trainer trainer) {
-		return ts.updateTrainer(trainer);
+		return this.ts.updateTrainer(trainer);
 	}
 
 }

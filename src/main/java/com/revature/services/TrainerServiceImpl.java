@@ -21,24 +21,53 @@ public class TrainerServiceImpl implements TrainerService {
 	TrainerRepository tr;
 
 	@Override
+	public Trainer authenticateTrainer(String username, String password) {
+		Trainer trainer = this.tr.findByUsername(username);
+		if (trainer.getPassword().equals(password)) {
+			return trainer;
+		}
+		return null;
+	}
+
+	@Override
 	public Trainer createTrainer(Trainer trainer) {
-		return tr.save(trainer);
+		return this.tr.save(trainer);
 	}
 
 	@Override
-	public Trainer getTrainerById(int id) {
-		Trainer trainer = tr.findById(id).get();
-		return trainer;
+	public boolean deleteTrainer(Trainer trainer) {
+		try {
+			this.tr.delete(trainer);
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
-	public Trainer getTrainerByName(String name) {
+	public Set<Trainer> getAllTrainers() {
+		Set<Trainer> trainers = new HashSet<>();
+		this.tr.findAll().forEach((elem) -> {
+			trainers.add(elem);
+		});
+		return trainers;
+	}
+
+	@Override
+	public Trainer getTopTrainer() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Trainer getTopTrainer() {
+	public Trainer getTrainerById(int id) {
+		Trainer trainer = this.tr.findById(id).get();
+		return trainer;
+	}
+
+	@Override
+	public Trainer getTrainerByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -50,36 +79,7 @@ public class TrainerServiceImpl implements TrainerService {
 	}
 
 	@Override
-	public Set<Trainer> getAllTrainers() {
-		Set<Trainer> trainers = new HashSet<>();
-		tr.findAll().forEach((elem) -> {
-			trainers.add(elem);
-		});
-		return trainers;
-	}
-
-	@Override
 	public Trainer updateTrainer(Trainer trainer) {
-		return tr.save(trainer);
-	}
-
-	@Override
-	public boolean deleteTrainer(Trainer trainer) {
-		try {
-			tr.delete(trainer);
-			return true;
-		}
-		catch (Exception e) {
-			return false;
-		}
-	}
-
-	@Override
-	public Trainer authenticateTrainer(String username, String password) {
-		Trainer trainer = tr.findByUsername(username);
-		if (trainer.getPassword().equals(password)) {
-			return trainer;
-		}
-		return null;
+		return this.tr.save(trainer);
 	}
 }

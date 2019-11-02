@@ -37,7 +37,7 @@ public class Purchase {
 
 	/**
 	 * Return the ID of the associate that made the purchase.
-	 * 
+	 *
 	 * @return The associate ID.
 	 */
 	public int getAssociateId() {
@@ -46,7 +46,7 @@ public class Purchase {
 
 	/**
 	 * Return the unique ID of the purchase.
-	 * 
+	 *
 	 * @return The purchase ID.
 	 */
 	public int getPurchaseId() {
@@ -55,7 +55,7 @@ public class Purchase {
 
 	/**
 	 * Return the ID of the reward this purchase was for.
-	 * 
+	 *
 	 * @return The reward ID.
 	 */
 	public int getRewardId() {
@@ -64,7 +64,7 @@ public class Purchase {
 
 	/**
 	 * Return the UNIX timestamp for when the purchase occurred.
-	 * 
+	 *
 	 * @return The time in milliseconds since the epoch at purchase time.
 	 */
 	public long getTime() {
@@ -73,7 +73,7 @@ public class Purchase {
 
 	/**
 	 * Set the ID of the associate that made the purchase.
-	 * 
+	 *
 	 * @param associateId The new associate ID.
 	 */
 	public void setAssociateId(int associateId) {
@@ -82,7 +82,7 @@ public class Purchase {
 
 	/**
 	 * Set the unique ID of the purchase.
-	 * 
+	 *
 	 * @param purchaseId The new purchase ID.
 	 */
 	public void setPurchaseId(int purchaseId) {
@@ -91,7 +91,7 @@ public class Purchase {
 
 	/**
 	 * Set the ID of the reward this purchase was for.
-	 * 
+	 *
 	 * @param rewardId The new reward ID.
 	 */
 	public void setRewardId(int rewardId) {
@@ -100,7 +100,7 @@ public class Purchase {
 
 	/**
 	 * Set the UNIX timestamp for when the purchase occurred.
-	 * 
+	 *
 	 * @param time The time in milliseconds since the epoch at purchase time.
 	 */
 	public void setTime(long time) {
@@ -109,8 +109,9 @@ public class Purchase {
 
 	@Override
 	public String toString() {
-		return "Purchase [purchaseId=" + purchaseId + ", associateId="
-			+ associateId + ", time=" + time + ", rewardId=" + rewardId + "]";
+		return "Purchase [purchaseId=" + this.purchaseId + ", associateId="
+			+ this.associateId + ", time=" + this.time + ", rewardId="
+			+ this.rewardId + "]";
 	}
 
 }
