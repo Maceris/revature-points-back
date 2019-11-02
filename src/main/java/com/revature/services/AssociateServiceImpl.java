@@ -64,8 +64,10 @@ public class AssociateServiceImpl implements AssociateService {
 
 	@Override
 	public Set<Associate> getAllAssociates() {
-		Set<Associate> associates =
-			new HashSet<>((Collection<? extends Associate>) ar.findAll());
+		Set<Associate> associates = new HashSet<>();
+		ar.findAll().forEach((elem) -> {
+			associates.add(elem);
+		});
 		return associates;
 	}
 
