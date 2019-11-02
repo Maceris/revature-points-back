@@ -5,6 +5,7 @@ import com.revature.services.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,10 @@ public class PurchaseController {
 	PurchaseService ps;
 
 	// TODO Create new purchase
+	@RequestMapping(value = "/purchases", method = RequestMethod.POST)
+	public Purchase createPurchase(@RequestBody Purchase purchase) {
+		return this.ps.createPurchase(purchase);
+	}
 
 	/**
 	 * Returns the set of all purchases in the system.

@@ -1,7 +1,12 @@
 package com.revature.services;
 
+import com.revature.entities.Associate;
 import com.revature.entities.Purchase;
+import com.revature.entities.Reward;
+import com.revature.repositories.AssociateRepository;
 import com.revature.repositories.PurchaseRepository;
+import com.revature.repositories.RewardRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,9 +24,30 @@ public class PurchaseServiceImpl implements PurchaseService {
 	 */
 	@Autowired
 	PurchaseRepository pr;
+	@Autowired
+	AssociateRepository ar;
+	@Autowired
+	AssociateService as;
+	@Autowired
+	RewardRepository rr;
+	@Autowired
+	RewardService rs;
 
 	@Override
 	public Purchase createPurchase(Purchase purchase) {
+		int rewardId = purchase.getRewardId();
+		Reward rewardBought = rr.findById(rewardId).get();
+		int associateId = purchase.getAssociateId();
+		Associate buyer = ar.findById(associateId).get();
+		
+		//Lowers the stock of the reward by 1, then updates the database
+		rewardBought.setStock(rewardBought.getStock() - 1);
+		rs.updateReward(rewardBought);
+		
+		//Removes the cost of the reward from the user, then updates the database
+		buyer.setBalance(buyer.getBalance() - rewardBought.getPrice());
+		as.updateAssociate(buyer);
+		
 		return this.pr.save(purchase);
 	}
 
