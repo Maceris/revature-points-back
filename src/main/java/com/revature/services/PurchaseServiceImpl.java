@@ -5,7 +5,6 @@ import com.revature.repositories.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,8 +38,10 @@ public class PurchaseServiceImpl implements PurchaseService {
 
 	@Override
 	public Set<Purchase> getAllPurchases() {
-		Set<Purchase> purchases =
-			new HashSet<>((Collection<? extends Purchase>) this.pr.findAll());
+		Set<Purchase> purchases = new HashSet<>();
+		this.pr.findAll().forEach((elem) -> {
+			purchases.add(elem);
+		});
 		return purchases;
 	}
 
