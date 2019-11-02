@@ -1,30 +1,34 @@
 package com.revature.services;
 
+import com.revature.entities.Associate;
+import com.revature.repositories.AssociateRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import com.revature.entities.Associate;
-import com.revature.entities.Purchase;
-import com.revature.repositories.AssociateRepository;
-
+/**
+ * An implementation of the {@link AssociateService}.
+ */
 @Component
 public class AssociateServiceImpl implements AssociateService {
 
+	/**
+	 * The associate repository to be injected by Spring.
+	 */
 	@Autowired
 	AssociateRepository ar;
 
 	@Override
 	public Associate createAssociate(Associate associate) {
-		associate = ar.save(associate);
-		return associate;
+		return ar.save(associate);
 	}
 
 	@Override
 	public Associate getAssociateById(int id) {
+		// TODO Deal with the exception when id is not found.
 		Associate associate = ar.findById(id).get();
 		return associate;
 	}
@@ -60,15 +64,14 @@ public class AssociateServiceImpl implements AssociateService {
 
 	@Override
 	public Set<Associate> getAllAssociates() {
-		Set<Associate> associates = new HashSet<Associate>(
-			(Collection<? extends Associate>) ar.findAll());
+		Set<Associate> associates =
+			new HashSet<>((Collection<? extends Associate>) ar.findAll());
 		return associates;
 	}
 
 	@Override
 	public Associate updateAssociate(Associate associate) {
-		associate = ar.save(associate);
-		return associate;
+		return ar.save(associate);
 	}
 
 	@Override
@@ -84,8 +87,7 @@ public class AssociateServiceImpl implements AssociateService {
 
 	@Override
 	public Set<Associate> getAllAssociatesByTrainerId(int id) {
-		Set<Associate> associates = new HashSet<Associate>(
-			(Collection<? extends Associate>) ar.findByTrainerId(id));
+		Set<Associate> associates = new HashSet<>(ar.findByTrainerId(id));
 		return associates;
 	}
 }

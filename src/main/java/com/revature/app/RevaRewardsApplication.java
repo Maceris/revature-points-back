@@ -15,6 +15,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("com.revature.repositories")
 public class RevaRewardsApplication {
 
+	/**
+	 * Starts up the spring application.
+	 * 
+	 * @param args Passed along to the spring application.
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(RevaRewardsApplication.class, args);
 	}

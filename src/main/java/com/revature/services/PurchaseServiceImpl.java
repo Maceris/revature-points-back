@@ -1,25 +1,29 @@
 package com.revature.services;
 
+import com.revature.entities.Purchase;
+import com.revature.repositories.PurchaseRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import com.revature.entities.Purchase;
-import com.revature.repositories.PurchaseRepository;
-
+/**
+ * An implementation of the {@link PurchaseService}.
+ */
 @Component
-public class PurchaseServiceImpl implements PurchaseService{
-	
+public class PurchaseServiceImpl implements PurchaseService {
+
+	/**
+	 * The purchase repository to be injected by Spring.
+	 */
 	@Autowired
 	PurchaseRepository pr;
 
 	@Override
 	public Purchase createPurchase(Purchase purchase) {
-		purchase = pr.save(purchase);
-		return purchase;
+		return pr.save(purchase);
 	}
 
 	@Override
@@ -30,7 +34,8 @@ public class PurchaseServiceImpl implements PurchaseService{
 
 	@Override
 	public Set<Purchase> getAllPurchases() {
-		Set<Purchase> purchases = new HashSet<Purchase>((Collection<? extends Purchase>) pr.findAll());
+		Set<Purchase> purchases =
+			new HashSet<>((Collection<? extends Purchase>) pr.findAll());
 		return purchases;
 	}
 
@@ -42,8 +47,7 @@ public class PurchaseServiceImpl implements PurchaseService{
 
 	@Override
 	public Purchase updatePurchase(Purchase purchase) {
-		purchase = pr.save(purchase);
-		return purchase;
+		return pr.save(purchase);
 	}
 
 	@Override
@@ -52,7 +56,7 @@ public class PurchaseServiceImpl implements PurchaseService{
 			pr.delete(purchase);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e) {
 			return false;
 		}
 	}
