@@ -37,6 +37,19 @@ public class RewardController {
 	}
 
 	/**
+	 * Return the reward that has the given reward ID.
+	 *
+	 * @param id The ID of the reward, passed in through the url.
+	 * @return The reward with that ID.
+	 */
+	@RequestMapping(value = "/rewards/{id}", method = RequestMethod.DELETE)
+	public Reward deleteRewardById(@PathVariable int id) {
+		Reward reward = this.rs.getRewardById(id);
+		this.rs.deleteReward(reward);
+		return reward;
+	}
+
+	/**
 	 * Returns all the rewards.
 	 *
 	 * @return The set of all rewards.
@@ -58,5 +71,18 @@ public class RewardController {
 	public Reward getRewardById(@PathVariable int id) {
 		Reward reward = this.rs.getRewardById(id);
 		return reward;
+	}
+
+	/**
+	 * Return the reward that has the given reward ID.
+	 *
+	 * @param id The ID of the reward, passed in through the url.
+	 * @param reward The new reward info.
+	 * @return The reward with that ID.
+	 */
+	@RequestMapping(value = "/rewards/{id}", method = RequestMethod.PUT)
+	public Reward updateRewardById(@PathVariable int id,
+		@RequestBody Reward reward) {
+		return this.rs.updateReward(reward);
 	}
 }
