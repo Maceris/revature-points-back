@@ -26,33 +26,34 @@ public class PurchaseController {
 	@Autowired
 	PurchaseService ps;
 
-	// TODO Create new purchase
+	/**
+	 * Create a new purchase.
+	 * 
+	 * @param purchase The purchase to create.
+	 * @return The newly created purchase, with updated values.
+	 */
 	@RequestMapping(value = "/purchases", method = RequestMethod.POST)
 	public Purchase createPurchase(@RequestBody Purchase purchase) {
 		return this.ps.createPurchase(purchase);
 	}
 
 	/**
-	 * Returns the set of all purchases in the system.
-	 *
-	 * @return All purchases.
-	 */
-	@RequestMapping(value = "/purchases", method = RequestMethod.GET)
-	public Set<Purchase> getAllPurchases() {
-		Set<Purchase> purchases = this.ps.getAllPurchases();
-		return purchases;
-	}
-
-	/**
-	 * Returns the purchases that were purchased by the given associate.
+	 * Returns the purchases that were purchased by the given associate, or the
+	 * set of all purchases in the system if the id is not specified.
 	 *
 	 * @param id The associate ID, passed in through the parameters.
 	 * @return The purchases for the given associate.
 	 */
 	@RequestMapping(value = "/purchases", method = RequestMethod.GET)
-	public Set<Purchase>
-		getAllPurchasesByAssociate(@RequestParam(value = "a_id") int id) {
-		Set<Purchase> purchases = this.ps.getAllPurchasesByAssociateId(id);
+	public Set<Purchase> getAllPurchasesByAssociate(
+		@RequestParam(value = "a_id", required = false) Integer id) {
+		Set<Purchase> purchases;
+		if (id == null) {
+			purchases = this.ps.getAllPurchases();
+		}
+		else {
+			purchases = this.ps.getAllPurchasesByAssociateId(id);
+		}
 		return purchases;
 	}
 
