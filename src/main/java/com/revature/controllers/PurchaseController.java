@@ -28,13 +28,26 @@ public class PurchaseController {
 
 	/**
 	 * Create a new purchase.
-	 * 
+	 *
 	 * @param purchase The purchase to create.
 	 * @return The newly created purchase, with updated values.
 	 */
 	@RequestMapping(value = "/purchases", method = RequestMethod.POST)
 	public Purchase createPurchase(@RequestBody Purchase purchase) {
 		return this.ps.createPurchase(purchase);
+	}
+
+	/**
+	 * Returns a purchase given the purchase ID.
+	 *
+	 * @param id The purchase ID to look up.
+	 * @return The purchase with that ID.
+	 */
+	@RequestMapping(value = "/purchases/{id}", method = RequestMethod.DELETE)
+	public Purchase deletePurchaseById(@PathVariable int id) {
+		Purchase purchase = this.ps.getPurchaseById(id);
+		this.ps.deletePurchase(purchase);
+		return purchase;
 	}
 
 	/**
