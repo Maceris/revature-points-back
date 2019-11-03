@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Set;
@@ -48,8 +49,9 @@ public class PurchaseController {
 	 * @param id The associate ID, passed in through the parameters.
 	 * @return The purchases for the given associate.
 	 */
-	@RequestMapping(value = "/purchases?a_id={id}", method = RequestMethod.GET)
-	public Set<Purchase> getAllPurchasesByAssociate(@PathVariable int id) {
+	@RequestMapping(value = "/purchases", method = RequestMethod.GET)
+	public Set<Purchase>
+		getAllPurchasesByAssociate(@RequestParam(value = "a_id") int id) {
 		Set<Purchase> purchases = this.ps.getAllPurchasesByAssociateId(id);
 		return purchases;
 	}

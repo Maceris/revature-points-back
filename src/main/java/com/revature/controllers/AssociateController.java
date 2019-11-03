@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Set;
@@ -55,8 +56,9 @@ public class AssociateController {
 	 * @param id The trainer ID, passed in through the parameters.
 	 * @return The set of associates that have the given trainer.
 	 */
-	@RequestMapping(value = "/associates?t_id={id}", method = RequestMethod.GET)
-	public Set<Associate> getAssociatesByTrainerId(@PathVariable int id) {
+	@RequestMapping(value = "/associates", method = RequestMethod.GET)
+	public Set<Associate>
+		getAssociatesByTrainerId(@RequestParam(value = "t_id") int id) {
 		Set<Associate> associates = this.as.getAllAssociatesByTrainerId(id);
 		return associates;
 	}
