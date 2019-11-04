@@ -3,9 +3,7 @@ package com.revature.steps;
 import com.revature.pages.Site;
 import com.revature.runners.TestRunner;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Assert;
 
 /**
  * Steps for the login process.
