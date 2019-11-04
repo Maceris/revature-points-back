@@ -6,6 +6,8 @@ Feature: Logging in
 		When The user types "<password>" into the password field
 		When The user presses the login button
 		Then The user should be on the dashboard page
+		When The user presses the logout button
+		Then The user should be on the login page
 		
 		Examples:
 		|username|password|
@@ -20,6 +22,8 @@ Feature: Logging in
 		When The user clicks on the trainer button
 		When The user presses the login button
 		Then The user should be on the dashboard page
+		When The user presses the logout button
+		Then The user should be on the login page
 
 		Examples:
 		|username|password|

@@ -1,5 +1,6 @@
 package com.revature.runners;
 
+import com.revature.pages.Dashboard;
 import com.revature.pages.LoginPage;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -29,6 +30,11 @@ public class TestRunner {
 	public static LoginPage loginPage;
 
 	/**
+	 * The dashboard.
+	 */
+	public static Dashboard dashboard;
+
+	/**
 	 * Set up before all tests.
 	 */
 	@BeforeClass
@@ -40,6 +46,7 @@ public class TestRunner {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		loginPage = new LoginPage();
+		dashboard = new Dashboard();
 	}
 
 	/**
