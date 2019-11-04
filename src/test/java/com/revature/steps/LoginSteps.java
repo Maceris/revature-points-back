@@ -43,18 +43,6 @@ public class LoginSteps {
 	}
 
 	/**
-	 * Checks that the user is now on the dashboard page.
-	 *
-	 * @throws Throwable If a problem occurs.
-	 */
-	@Then("^The user should be on the dashboard page$")
-	public void the_user_should_be_on_the_dashboard_page() throws Throwable {
-		Thread.sleep(1000);
-		Assert.assertEquals(Site.URL + "dashboard",
-			TestRunner.driver.getCurrentUrl());
-	}
-
-	/**
 	 * Types the given string into the password field on the login page.
 	 *
 	 * @param password The password.
