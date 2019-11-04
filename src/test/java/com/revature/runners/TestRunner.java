@@ -38,7 +38,7 @@ public class TestRunner {
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		loginPage = new LoginPage();
 	}
 

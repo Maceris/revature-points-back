@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
  * The login page for the site.
  */
 public class LoginPage {
-	
+
 	/**
 	 * The username input field.
 	 */
@@ -27,6 +27,18 @@ public class LoginPage {
 	 */
 	@FindBy(id = "loginButton")
 	public WebElement loginButton;
+
+	/**
+	 * The login button.
+	 */
+	@FindBy(id = "associateButton")
+	public WebElement associateButton;
+
+	/**
+	 * The login button.
+	 */
+	@FindBy(id = "trainerButton")
+	public WebElement trainerButton;
 
 	/**
 	 * Initializes the elements of the page with the driver.

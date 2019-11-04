@@ -13,8 +13,18 @@ import org.junit.Assert;
 public class LoginSteps {
 
 	/**
+	 * Click the trainer button on the login page.
+	 *
+	 * @throws Throwable If a problem occurs.
+	 */
+	@When("^The user clicks on the trainer button$")
+	public void the_user_clicks_on_the_trainer_button() throws Throwable {
+		TestRunner.loginPage.trainerButton.click();
+	}
+
+	/**
 	 * Navigates the user to the login page.
-	 * 
+	 *
 	 * @throws Throwable If a problem occurs.
 	 */
 	@Given("^The user is on the login page$")
@@ -23,20 +33,30 @@ public class LoginSteps {
 	}
 
 	/**
-	 * Types the given string into the username field on the login page.
-	 * 
-	 * @param username The username to use.
+	 * Clicks the login button on the login page.
+	 *
 	 * @throws Throwable If a problem occurs.
 	 */
-	@When("^The user types \"([^\"]*)\" into the username field$")
-	public void the_user_types_into_the_username_field(String username)
-		throws Throwable {
-		TestRunner.loginPage.usernameField.sendKeys(username);
+	@When("^The user presses the login button$")
+	public void the_user_presses_the_login_button() throws Throwable {
+		TestRunner.loginPage.loginButton.click();
+	}
+
+	/**
+	 * Checks that the user is now on the dashboard page.
+	 *
+	 * @throws Throwable If a problem occurs.
+	 */
+	@Then("^The user should be on the dashboard page$")
+	public void the_user_should_be_on_the_dashboard_page() throws Throwable {
+		Thread.sleep(1000);
+		Assert.assertEquals(Site.URL + "dashboard",
+			TestRunner.driver.getCurrentUrl());
 	}
 
 	/**
 	 * Types the given string into the password field on the login page.
-	 * 
+	 *
 	 * @param password The password.
 	 * @throws Throwable If a problem occurs.
 	 */
@@ -47,24 +67,15 @@ public class LoginSteps {
 	}
 
 	/**
-	 * Clicks the login button on the login page.
-	 * 
+	 * Types the given string into the username field on the login page.
+	 *
+	 * @param username The username to use.
 	 * @throws Throwable If a problem occurs.
 	 */
-	@When("^The user presses the login button$")
-	public void the_user_presses_the_login_button() throws Throwable {
-		TestRunner.loginPage.loginButton.click();
-	}
-
-	/**
-	 * Checks that the user is now on the dashboard page.
-	 * 
-	 * @throws Throwable If a problem occurs.
-	 */
-	@Then("^The user should be on the dashboard page$")
-	public void the_user_should_be_on_the_dashboard_page() throws Throwable {
-		Assert.assertEquals(Site.URL + "dashboard",
-			TestRunner.driver.getCurrentUrl());
+	@When("^The user types \"([^\"]*)\" into the username field$")
+	public void the_user_types_into_the_username_field(String username)
+		throws Throwable {
+		TestRunner.loginPage.usernameField.sendKeys(username);
 	}
 
 }
