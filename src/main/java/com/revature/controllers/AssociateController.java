@@ -1,110 +1,94 @@
 package com.revature.controllers;
 
-import java.util.Set;
-
+import com.revature.entities.Associate;
+import com.revature.entities.Login;
+import com.revature.services.AssociateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.entities.Associate;
-import com.revature.entities.Purchase;
-import com.revature.entities.Reward;
-import com.revature.entities.Trainer;
-import com.revature.services.AssociateService;
-import com.revature.services.PurchaseService;
-import com.revature.services.RewardService;
-import com.revature.services.TrainerService;
+import java.util.Set;
 
+/**
+ * Provides endpoints for dealing with associates.
+ */
 @Component
 @RestController
 public class AssociateController {
-	
+
+	/**
+	 * The Associate Service that will get injected into the controller.
+	 */
 	@Autowired
 	AssociateService as;
-	@Autowired
-	PurchaseService ps;
-	@Autowired
-	RewardService rs;
-	
-	// 			CREATE
-	// Create new associate
+
+	/**
+	 * Create a new associate.
+	 *
+	 * @param associate The associate to be created.
+	 * @return The newly created associate, with updated fields.
+	 */
 	@RequestMapping(value = "/associates", method = RequestMethod.POST)
 	public Associate createAssociate(@RequestBody Associate associate) {
-		associate = as.createAssociate(associate);
-		return associate;
+		return this.as.createAssociate(associate);
 	}
-	
-	// Create new purchase
-	
-	// 			READ
-	// Get associate by id
+
+	/**
+	 * Finds the associate by ID.
+	 *
+	 * @param id The ID of the associate, passed in the url.
+	 * @return The associate with that ID, or null if none found.
+	 */
 	@RequestMapping(value = "/associates/{id}", method = RequestMethod.GET)
 	public Associate getAssociateById(@PathVariable int id) {
-		Associate associate = as.getAssociateById(id);
+		Associate associate = this.as.getAssociateById(id);
 		return associate;
 	}
-	
-	// Login associate
-	@RequestMapping(value = "/associates/login", method = RequestMethod.POST)
-	public Associate loginAssociate(@RequestBody Associate associate) {
-		Associate user = as.authenticateAssociate(associate.getUsername(), associate.getPassword());
-		if(user.equals(null)) {
-			return null;
-		}
-		else {
-			return user;
-		}
-	}
-	
-	// Get all associates by trainer id
-	@RequestMapping(value = "/associates?t_id={id}", method = RequestMethod.GET)
-	public Set<Associate> getAssociatesByTrainerId(@PathVariable int id) {
-		Set<Associate> associates = as.getAllAssociatesByTrainerId(id);
+
+	/**
+	 * Returns all associates that have a given trainer ID.
+	 *
+	 * @param id The trainer ID, passed in through the parameters.
+	 * @return The set of associates that have the given trainer.
+	 */
+	@RequestMapping(value = "/associates", method = RequestMethod.GET)
+	public Set<Associate>
+		getAssociatesByTrainerId(@RequestParam(value = "t_id") int id) {
+		Set<Associate> associates = this.as.getAllAssociatesByTrainerId(id);
 		return associates;
 	}
-	
-	// Get all purchases my by specific associate
-	@RequestMapping(value = "/purchases?a_id={id}", method = RequestMethod.GET)
-	public Set<Purchase> getAllPurchasesByAssociate(@PathVariable int id){
-		Set<Purchase> purchases = ps.getAllPurchasesByAssociateId(id);
-		return purchases;
+
+	/**
+	 * Try to log the user in.
+	 *
+	 * @param login The login info passed in the request body.
+	 * @return The associated user, or null if no records match the credentials.
+	 */
+	@RequestMapping(value = "/associates/login", method = RequestMethod.POST)
+	public Associate loginAssociate(@RequestBody Login login) {
+		Associate user = this.as.authenticateAssociate(login.getUsername(),
+			login.getPassword());
+		if (user.equals(null)) {
+			return null;
+		}
+		return user;
 	}
-	
-	// Get purchase by id
-	@RequestMapping(value = "/purchases/{id}", method = RequestMethod.GET)
-	public Purchase getPurchaseById(@PathVariable int id) {
-		Purchase purchase = ps.getPurchaseById(id);
-		return purchase;
-	}
-	
-	// Get all rewards
-	@RequestMapping(value = "/rewards", method = RequestMethod.GET)
-	public Set<Reward> getAllRewards(){
-		Set<Reward> rewards = rs.getAllRewards();
-		return rewards;
-	}
-	
-	// Get reward by id
-	@RequestMapping(value = "/rewards/{id}", method = RequestMethod.GET)
-	public Reward getRewardById(@PathVariable int id) {
-		Reward reward = rs.getRewardById(id);
-		return reward;
-	}
-	
-	// 			UPDATE
-	// Update associate by id
+
+	/**
+	 * Update an associate given their ID.
+	 *
+	 * @param associate The associate passed in the request body, to be updated.
+	 * @return The newly updated associate.
+	 */
 	@RequestMapping(value = "/associates/{id}", method = RequestMethod.PUT)
 	public Associate updateAssociateById(@RequestBody Associate associate) {
-		associate = as.updateAssociate(associate);
-		return associate;
+		return this.as.updateAssociate(associate);
 	}
-	
-	
-	
-	// 			DELETE
-	// Delete associate by id
+
+	// TODO Delete associate by id
 }

@@ -1,42 +1,73 @@
 package com.revature.services;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
+import com.revature.entities.Trainer;
+import com.revature.repositories.TrainerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.revature.entities.Associate;
-import com.revature.entities.Trainer;
-import com.revature.repositories.TrainerRepository;
+import java.util.HashSet;
+import java.util.Set;
 
+/**
+ * An implementation of the {@link TrainerService}.
+ */
 @Component
 public class TrainerServiceImpl implements TrainerService {
 
+	/**
+	 * The trainer repository to be injected by Spring.
+	 */
 	@Autowired
 	TrainerRepository tr;
-	
+
 	@Override
-	public Trainer createTrainer(Trainer trainer) {
-		trainer = tr.save(trainer);
+	public Trainer authenticateTrainer(String username, String password) {
+		Trainer trainer = this.tr.findByUsername(username);
+		if (trainer.getPassword().equals(password)) {
+			return trainer;
+		}
 		return null;
 	}
 
 	@Override
-	public Trainer getTrainerById(int id) {
-		Trainer trainer = tr.findById(id).get();
-		return trainer;
+	public Trainer createTrainer(Trainer trainer) {
+		return this.tr.save(trainer);
 	}
 
 	@Override
-	public Trainer getTrainerByName(String name) {
+	public boolean deleteTrainer(Trainer trainer) {
+		try {
+			this.tr.delete(trainer);
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
+	}
+
+	@Override
+	public Set<Trainer> getAllTrainers() {
+		Set<Trainer> trainers = new HashSet<>();
+		this.tr.findAll().forEach((elem) -> {
+			trainers.add(elem);
+		});
+		return trainers;
+	}
+
+	@Override
+	public Trainer getTopTrainer() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Trainer getTopTrainer() {
+	public Trainer getTrainerById(int id) {
+		Trainer trainer = this.tr.findById(id).get();
+		return trainer;
+	}
+
+	@Override
+	public Trainer getTrainerByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -48,36 +79,7 @@ public class TrainerServiceImpl implements TrainerService {
 	}
 
 	@Override
-	public Set<Trainer> getAllTrainers() {
-		Set<Trainer> trainers = new HashSet<Trainer>((Collection<? extends Trainer>) tr.findAll());
-		return trainers;
-	}
-
-	@Override
 	public Trainer updateTrainer(Trainer trainer) {
-		trainer = tr.save(trainer);
-		return trainer;
-	}
-
-	@Override
-	public boolean deleteTrainer(Trainer trainer) {
-		try {
-			tr.delete(trainer);
-			return true;
-		}
-		catch(Exception e) {
-			return false;
-		}
-	}
-
-	@Override
-	public Trainer authenticateTrainer(String username, String password) {
-		Trainer trainer = (Trainer) tr.findByUsername(username);
-		if(trainer.getPassword().equals(password)) {
-			return trainer;
-		}
-		else {
-			return null;
-		}
+		return this.tr.save(trainer);
 	}
 }
