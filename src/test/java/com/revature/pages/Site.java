@@ -7,5 +7,5 @@ public class Site {
 	/**
 	 * The root address of the site.
 	 */
-	public static final String URL = "http://localhost:4200/";
+	public static final String URL = "http://http://revapoints-frontend.s3-website.us-east-2.amazonaws.com/";
 }
